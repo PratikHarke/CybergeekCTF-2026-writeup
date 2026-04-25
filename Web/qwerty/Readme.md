@@ -1,4 +1,4 @@
-# 🕹️ Arcade Relic – Writeup
+# 🕹️ qwerty Writeup
 
 <p align="center">
   <img src="https://img.shields.io/badge/CATEGORY-WEB-purple?style=for-the-badge">
