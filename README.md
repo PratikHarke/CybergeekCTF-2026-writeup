@@ -112,7 +112,7 @@ If you find this repository useful:
 
 ## 📬 Connect With Me
 
-- 💼 LinkedIn: *(add your link here)*  
+- 💼 LinkedIn: www.linkedin.com/in/pratik-harke-b60782293
 - 🐙 GitHub: https://github.com/PratikHarke  
 
 ---
