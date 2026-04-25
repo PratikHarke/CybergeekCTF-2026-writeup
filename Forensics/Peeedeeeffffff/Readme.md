@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/CATEGORY-FORensics-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/DIFFICULTY-MEDIUM-black?style=for-the-badge">
+  <img src="https://img.shields.io/badge/DIFFICULTY-HARD-black?style=for-the-badge">
   <img src="https://img.shields.io/badge/TECHNIQUE-PDF%20Steganography-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/FOCUS-MULTI%20LAYER%20ANALYSIS-green?style=for-the-badge">
 </p>
