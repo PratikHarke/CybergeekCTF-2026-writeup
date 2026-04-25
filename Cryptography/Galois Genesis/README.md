@@ -1,4 +1,4 @@
-# 🧟 Zombie Generator – Writeup
+# Galois Genesis Writeup
 
 <p align="center">
   <img src="https://img.shields.io/badge/CATEGORY-CRYPTO%20%2F%20MISC-purple?style=for-the-badge">
