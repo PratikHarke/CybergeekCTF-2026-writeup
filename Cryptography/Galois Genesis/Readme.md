@@ -9,11 +9,6 @@
 
 ---
 
-## 📁 Files Included
-
-- challenge.txt → Provided encoded string  
-
----
 
 ## 📜 Challenge Description
 
