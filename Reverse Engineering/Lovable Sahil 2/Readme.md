@@ -1,4 +1,4 @@
-# 🧠 Funhouse VM Challenge Writeup
+# 🧠 Lovable Sahil 2 Writeup
 
 <p align="center">
   <img src="https://img.shields.io/badge/Category-Reverse%20Engineering-red?style=for-the-badge">
