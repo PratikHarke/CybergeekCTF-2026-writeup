@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Category-Forensics%20%2F%20Steganography-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Difficulty-Medium-yellow?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Difficulty-Hard-red?style=for-the-badge">
   <img src="https://img.shields.io/badge/CTF-CTF7-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/Technique-PDF%20Forensics-green?style=for-the-badge">
 </p>
