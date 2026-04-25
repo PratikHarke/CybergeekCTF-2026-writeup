@@ -1,167 +1,139 @@
 # 🧠 Archive Me In Your Heart – Writeup
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Category-Forensics%20%2F%20Steganography-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Difficulty-Hard-red?style=for-the-badge">
-  <img src="https://img.shields.io/badge/CTF-CTF7-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Technique-PDF%20Forensics-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/CATEGORY-FORensics-purple?style=for-the-badge">
+  <img src="https://img.shields.io/badge/DIFFICULTY-MEDIUM-black?style=for-the-badge">
+  <img src="https://img.shields.io/badge/TECHNIQUE-PDF%20Steganography-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/FOCUS-MULTI%20LAYER%20ANALYSIS-green?style=for-the-badge">
 </p>
 
 ---
 
 ## 📁 Files Included
 
-- Archive_me_in_your_Heart.pdf → Challenge PDF file
+- Archive_me_in_your_Heart.pdf → Challenge PDF  
 
 ---
 
-## 📌 Challenge Overview
+## 📜 Challenge Description
 
-Challenge description:
-pee dee ef
-
-We are given a PDF containing a story. The objective is to find the hidden flag.
+pee dee ef  
 
 Flag format: geek{...}
 
 ---
 
-## 🔍 Step 1: Initial Observation
+## 🔍 Initial Observation
 
-Opening the PDF shows a multi-part story:
+The PDF contains a multi-part story:
 
-- Part One: The Shelf
-- Part Two: The Rain
-- Part Three: Eight Months
-- Part Four: The Ledger
+- Part One: The Shelf  
+- Part Two: The Rain  
+- Part Three: Eight Months  
+- Part Four: The Ledger  
 
-At first glance, the PDF looks like normal narrative text, but several anomalies are visible:
+However, several anomalies stand out:
 
-- Broken and truncated words
-- Irregular spacing
-- Strange formatting issues
-- Inconsistent sentence structures
+- Broken words (summHe, thh, agaih)  
+- Irregular spacing  
+- Formatting inconsistencies  
 
-Examples include words like summHe, thh, and agaih.
-
-These anomalies suggest that the visible story is likely a decoy and the real flag is hidden inside the PDF structure.
+➡️ Indicates visible text is a **decoy**
 
 ---
 
-## 🧠 Step 2: Analysis Strategy
+## 🧠 Approach
 
-The clue “pee dee ef” points directly toward PDF internals.
+The hint “pee dee ef” suggests focusing on:
 
-Instead of trusting the visible text, the approach was:
+- PDF internals  
+- Embedded objects  
+- Hidden layers  
 
-- Inspect raw strings
-- Check metadata
-- Look for embedded files
-- Extract compressed objects
-- Analyze PDF object streams
-- Verify all discovered flags carefully
+➡️ Not the visible content
 
 ---
 
-## 🔧 Step 3: Extracting Strings
+## 🔧 Step 1: Strings Extraction
 
 Command:
 strings Archive_me_in_your_Heart.pdf | grep geek
 
 Output:
-geek{n0t_th3_r34l_0n3}
-geek{d3c0y_f14g}
+geek{n0t_th3_r34l_0n3}  
+geek{d3c0y_f14g}  
 
-These flags were found very easily, which made them suspicious.
-
-Conclusion:
-Both are decoy flags.
+➡️ Decoy flags
 
 ---
 
-## 🔧 Step 4: Metadata Check
+## 🔧 Step 2: Metadata Check
 
 Command:
 exiftool Archive_me_in_your_Heart.pdf
 
-Result:
-No useful flag-related information was found in the metadata.
+➡️ No useful data
 
 ---
 
-## 🔧 Step 5: Embedded Data Scan
+## 🔧 Step 3: Embedded Data Scan
 
 Command:
 binwalk Archive_me_in_your_Heart.pdf
 
-The scan revealed hidden structures and embedded data inside the PDF.
-
-This confirmed that the file contained more than just normal visible PDF content.
+➡️ Reveals hidden structures
 
 ---
 
-## 🔧 Step 6: Extracting Embedded Content
+## 🔧 Step 4: Extract Embedded Content
 
 Command:
 binwalk -e Archive_me_in_your_Heart.pdf
 
-This extracted hidden files and compressed objects from the PDF for further inspection.
+➡️ Extracts hidden files
 
 ---
 
-## 🔧 Step 7: Checking PDF Attachments
+## 🔧 Step 5: Extract Attachments
 
 Command:
 pdfdetach -list Archive_me_in_your_Heart.pdf
 
-Attachments were detected inside the PDF.
-
-Extraction command:
+Extraction:
 pdfdetach -saveall Archive_me_in_your_Heart.pdf
 
-This revealed an embedded PNG file.
+➡️ Embedded PNG found
 
 ---
 
-## 🔍 Step 8: Analyzing the Embedded PNG
+## 🔍 Step 6: PNG Analysis
 
-The extracted PNG was inspected using tools like strings, exiftool, and image viewing.
-
-The PNG revealed an additional hint/key, confirming that the challenge used multiple layers and that simple string extraction was not enough.
+- PNG contains additional hints  
+- Confirms multi-layer hiding  
 
 ---
 
-## 🔧 Step 9: Inspecting PDF Object Streams
+## 🔧 Step 7: Inspect Object Streams
 
 Command:
 qpdf --qdf --object-streams=disable Archive_me_in_your_Heart.pdf out.pdf
 
-This decompressed the PDF object streams and made hidden content readable.
-
-Inside the decompressed output, another flag was found:
-
+Found:
 geek{wr0ng_l4y3r_wr0ng_4nsw3r}
 
-This was also a decoy flag.
+➡️ Another decoy
 
 ---
 
-## 🧩 Step 10: Final Extraction
+## 🧩 Final Extraction
 
-At this point, multiple fake flags had been discovered:
+After correlating:
 
-- geek{n0t_th3_r34l_0n3}
-- geek{d3c0y_f14g}
-- geek{wr0ng_l4y3r_wr0ng_4nsw3r}
+- Decoy flags  
+- Embedded PNG  
+- PDF object streams  
 
-By correlating:
-
-- Decoy flags from strings
-- Hidden PDF object streams
-- Embedded PNG hint
-- Extracted PDF attachments
-
-The correct flag was identified.
+➡️ Real flag identified
 
 ---
 
@@ -173,32 +145,29 @@ geek{I_l0ve_PDF}
 
 ## 🧠 Key Takeaways
 
-- PDF challenges often contain multiple hidden layers
-- Easy flags found using strings are often decoys
-- Always inspect PDF internals, not just visible content
-- Useful PDF hiding locations include:
-  - Object streams
-  - Embedded attachments
-  - Metadata
-  - Compressed objects
-  - Hidden images
-- Systematic enumeration helps avoid falling for decoys
+- PDFs can hide multiple layers  
+- Strings output often contains decoys  
+- Always inspect:
+  - Object streams  
+  - Embedded files  
+  - Attachments  
+- Systematic enumeration is key  
 
 ---
 
 ## 🛠 Tools Used
 
-- strings
-- binwalk
-- pdfdetach
-- exiftool
-- qpdf
+- strings  
+- binwalk  
+- pdfdetach  
+- exiftool  
+- qpdf  
 
 ---
 
 ## 🏁 Conclusion
 
-This challenge demonstrates a classic multi-layer PDF forensics and steganography workflow. The visible story and easily extracted flags were designed to mislead the solver. By analyzing embedded files, compressed streams, and PDF internals, the real flag was recovered successfully.
+This challenge demonstrates multi-layer PDF steganography with intentional decoys. Careful inspection of internal structures leads to the correct flag.
 
 ---
 
