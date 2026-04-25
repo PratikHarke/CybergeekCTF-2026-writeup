@@ -2,20 +2,13 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/CATEGORY-FORensics-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/DIFFICULTY-MEDIUM-black?style=for-the-badge">
+  <img src="https://img.shields.io/badge/DIFFICULTY-EASY-black?style=for-the-badge">
   <img src="https://img.shields.io/badge/TECHNIQUE-POLYGLOT%20FILES-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/FOCUS-IMAGE%20DIFFING-green?style=for-the-badge">
 </p>
 
 ---
 
-## 📁 Files Included
-
-- strawberry_ice_cream.jpg → Challenge file  
-- img1.jpg / img2.jpg → Extracted images  
-- final.png → Difference output  
-
----
 
 ## 📜 Challenge Description
 
