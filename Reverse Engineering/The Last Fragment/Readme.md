@@ -160,7 +160,7 @@ Python approach:
 
 ## 🎯 Final Flag
 
-geek{vvirtual_m4ch1n3_m4st3r}
+geek{virtual_m4ch1n3_m4st3r}
 
 ---
 
