@@ -1,4 +1,4 @@
-# 🔐 Weak RSA – Writeup
+# 🔐 Air RSA Writeup
 
 <p align="center">
   <img src="https://img.shields.io/badge/CATEGORY-CRYPTO-purple?style=for-the-badge">
